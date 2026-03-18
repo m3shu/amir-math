@@ -15,11 +15,8 @@
     --accent4: #4d96ff;
     --text: #f0e6ff;
     --muted: #9b8fc0;
-    --glow: rgba(255,107,107,0.3);
   }
-
   * { margin:0; padding:0; box-sizing:border-box; }
-
   body {
     font-family: 'Hind Siliguri', sans-serif;
     background: var(--bg);
@@ -28,504 +25,192 @@
     overflow-x: hidden;
     position: relative;
   }
-
-  /* Animated background */
   body::before {
     content:'';
     position:fixed; inset:0;
     background: radial-gradient(ellipse at 20% 20%, rgba(77,150,255,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(255,107,107,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(107,203,119,0.05) 0%, transparent 60%);
-    pointer-events: none;
-    z-index:0;
+                radial-gradient(ellipse at 80% 80%, rgba(255,107,107,0.15) 0%, transparent 50%);
+    pointer-events: none; z-index:0;
   }
-
-  .stars {
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    overflow:hidden;
-  }
+  .stars { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
   .star {
-    position:absolute;
-    width:3px; height:3px;
-    border-radius:50%;
-    background:#fff;
-    opacity:0;
-    animation: twinkle var(--dur) ease-in-out infinite;
-    animation-delay: var(--delay);
+    position:absolute; width:3px; height:3px; border-radius:50%; background:#fff; opacity:0;
+    animation: twinkle var(--dur) ease-in-out infinite; animation-delay: var(--delay);
   }
-
   @keyframes twinkle {
     0%,100% { opacity:0; transform:scale(1); }
     50% { opacity:0.8; transform:scale(1.5); }
   }
-
   .container {
     position:relative; z-index:1;
-    max-width:700px;
-    margin:0 auto;
-    padding:20px 16px 40px;
+    max-width:680px; margin:0 auto; padding:20px 16px 40px;
   }
-
-  /* Header */
-  .header {
-    text-align:center;
-    margin-bottom:24px;
-  }
+  .header { text-align:center; margin-bottom:22px; }
   .title {
-    font-family: 'Baloo Da 2', cursive;
-    font-size:2.8rem;
-    font-weight:800;
+    font-family: 'Baloo Da 2', cursive; font-size:2.6rem; font-weight:800;
     background: linear-gradient(135deg, var(--accent2), var(--accent1), var(--accent4));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-    line-height:1.1;
-    text-shadow: none;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     filter: drop-shadow(0 0 20px rgba(255,217,61,0.4));
   }
-  .subtitle {
-    color: var(--muted);
-    font-size:0.95rem;
-    margin-top:4px;
-  }
+  .subtitle { color:var(--muted); font-size:0.9rem; margin-top:4px; }
 
-  /* Score bar */
   .scorebar {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background: var(--card);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:16px;
-    padding:14px 20px;
-    margin-bottom:20px;
-    gap:12px;
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--card); border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px; padding:14px 20px; margin-bottom:18px; gap:12px;
   }
-  .score-item {
-    text-align:center;
-    flex:1;
-  }
-  .score-label {
-    font-size:0.7rem;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:2px;
-  }
-  .score-value {
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.9rem;
-    font-weight:800;
-    line-height:1;
-  }
-  .score-value.points { color: var(--accent2); }
-  .score-value.correct { color: var(--accent3); }
-  .score-value.wrong { color: var(--accent1); }
+  .score-item { text-align:center; flex:1; }
+  .score-label { font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; }
+  .score-value { font-family:'Baloo Da 2',cursive; font-size:1.9rem; font-weight:800; line-height:1; }
+  .score-value.points { color:var(--accent2); }
+  .score-value.correct { color:var(--accent3); }
+  .score-value.wrong { color:var(--accent1); }
   .divider { width:1px; height:40px; background:rgba(255,255,255,0.1); }
 
-  /* Table selector */
-  .section-label {
-    font-size:0.8rem;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:10px;
-  }
-  .table-selector {
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:20px;
-  }
+  .section-label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+  .table-selector { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
   .table-btn {
-    width:48px; height:48px;
-    border:2px solid rgba(255,255,255,0.12);
-    background: var(--card);
-    border-radius:12px;
-    color:var(--text);
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:all 0.2s;
+    width:48px; height:48px; border:2px solid rgba(255,255,255,0.12); background:var(--card);
+    border-radius:12px; color:var(--text); font-family:'Baloo Da 2',cursive; font-size:1.1rem;
+    font-weight:700; cursor:pointer; transition:all 0.2s;
     display:flex; align-items:center; justify-content:center;
   }
-  .table-btn:hover {
-    border-color: var(--accent4);
-    background: rgba(77,150,255,0.15);
-    transform:translateY(-2px);
-  }
-  .table-btn.active {
-    border-color: var(--accent2);
-    background: rgba(255,217,61,0.15);
-    color: var(--accent2);
-    box-shadow: 0 0 14px rgba(255,217,61,0.25);
-  }
+  .table-btn:hover { border-color:var(--accent4); background:rgba(77,150,255,0.15); transform:translateY(-2px); }
+  .table-btn.active { border-color:var(--accent2); background:rgba(255,217,61,0.15); color:var(--accent2); box-shadow:0 0 14px rgba(255,217,61,0.25); }
 
-  /* Question card */
+  .progress-section { margin-bottom:18px; }
+  .progress-track { background:rgba(255,255,255,0.06); border-radius:99px; height:8px; overflow:hidden; }
+  .progress-fill {
+    height:100%; border-radius:99px;
+    background:linear-gradient(90deg, var(--accent3), var(--accent2));
+    transition:width 0.5s ease; box-shadow:0 0 8px rgba(107,203,119,0.4);
+  }
+  .progress-label { display:flex; justify-content:space-between; font-size:0.75rem; color:var(--muted); margin-bottom:6px; }
+
   .question-card {
-    background: var(--card);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:24px;
-    padding:28px 24px;
-    text-align:center;
-    margin-bottom:20px;
-    position:relative;
-    overflow:hidden;
+    background:var(--card); border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px; padding:30px 24px; text-align:center; margin-bottom:18px;
+    position:relative; overflow:hidden;
   }
   .question-card::before {
-    content:'';
-    position:absolute; top:0; left:0; right:0; height:3px;
-    background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent4));
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent4));
   }
-  .question-badge {
-    display:inline-block;
-    background:rgba(77,150,255,0.15);
-    border:1px solid rgba(77,150,255,0.3);
-    border-radius:20px;
-    padding:3px 14px;
-    font-size:0.75rem;
-    color:var(--accent4);
-    margin-bottom:16px;
-    letter-spacing:0.5px;
-  }
+  .question-num { font-size:0.72rem; color:var(--accent4); letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
   .question-text {
-    font-family:'Baloo Da 2', cursive;
-    font-size:2.5rem;
-    font-weight:800;
-    color:#fff;
-    margin-bottom:10px;
-    line-height:1.2;
+    font-family:'Baloo Da 2',cursive; font-size:3rem; font-weight:800; color:#fff;
+    margin-bottom:8px; line-height:1.1;
   }
-  .question-hint {
-    font-size:0.82rem;
-    color:var(--muted);
-  }
+  .question-hint { font-size:0.85rem; color:var(--muted); }
 
-  /* Answer display */
   .answer-display {
-    background:rgba(255,255,255,0.04);
-    border:2px solid rgba(255,255,255,0.1);
-    border-radius:14px;
-    padding:14px 20px;
-    margin:16px 0;
-    min-height:56px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:all 0.3s;
+    background:rgba(255,255,255,0.04); border:2px solid rgba(255,255,255,0.1);
+    border-radius:14px; padding:16px 20px; margin:18px 0; min-height:60px;
+    display:flex; align-items:center; justify-content:center; transition:all 0.3s;
   }
   .answer-display.listening {
-    border-color:var(--accent4);
-    background:rgba(77,150,255,0.08);
-    box-shadow: 0 0 20px rgba(77,150,255,0.2);
+    border-color:var(--accent4); background:rgba(77,150,255,0.08);
+    box-shadow:0 0 24px rgba(77,150,255,0.25);
   }
   .answer-display.correct {
-    border-color:var(--accent3);
-    background:rgba(107,203,119,0.1);
-    animation: correctPulse 0.5s ease;
+    border-color:var(--accent3); background:rgba(107,203,119,0.1);
+    animation:correctPulse 0.5s ease;
   }
   .answer-display.wrong {
-    border-color:var(--accent1);
-    background:rgba(255,107,107,0.1);
-    animation: wrongShake 0.4s ease;
+    border-color:var(--accent1); background:rgba(255,107,107,0.1);
+    animation:wrongShake 0.4s ease;
   }
-  @keyframes correctPulse {
-    0% { transform:scale(1); }
-    50% { transform:scale(1.03); }
-    100% { transform:scale(1); }
-  }
-  @keyframes wrongShake {
-    0%,100% { transform:translateX(0); }
-    25% { transform:translateX(-8px); }
-    75% { transform:translateX(8px); }
-  }
-  .answer-text {
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.6rem;
-    font-weight:700;
-    color:var(--text);
-  }
-  .answer-placeholder {
-    font-size:0.9rem;
-    color:rgba(155,143,192,0.5);
-  }
+  @keyframes correctPulse { 0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes wrongShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+  .answer-text { font-family:'Baloo Da 2',cursive; font-size:1.8rem; font-weight:700; color:var(--text); }
+  .answer-placeholder { font-size:0.9rem; color:rgba(155,143,192,0.45); }
 
-  /* Mic button */
-  .mic-section {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-  }
+  .mic-section { display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:16px; }
   .mic-btn {
-    width:80px; height:80px;
-    border-radius:50%;
-    border:none;
-    background: linear-gradient(135deg, var(--accent1), #ff4757);
-    color:#fff;
-    font-size:2rem;
-    cursor:pointer;
-    transition:all 0.2s;
-    position:relative;
-    box-shadow: 0 4px 20px rgba(255,107,107,0.4);
+    width:88px; height:88px; border-radius:50%; border:none;
+    background:linear-gradient(135deg, var(--accent1), #ff4757); color:#fff;
+    font-size:2.2rem; cursor:pointer; transition:all 0.2s;
+    box-shadow:0 4px 22px rgba(255,107,107,0.4);
     display:flex; align-items:center; justify-content:center;
   }
-  .mic-btn:hover { transform:scale(1.05); box-shadow:0 6px 28px rgba(255,107,107,0.5); }
-  .mic-btn:active { transform:scale(0.97); }
+  .mic-btn:hover { transform:scale(1.05); }
   .mic-btn.listening {
-    background: linear-gradient(135deg, var(--accent4), #2d7dd2);
-    box-shadow: 0 4px 24px rgba(77,150,255,0.5);
-    animation: micPulse 1.2s ease-in-out infinite;
+    background:linear-gradient(135deg, var(--accent4), #2d7dd2);
+    box-shadow:0 4px 26px rgba(77,150,255,0.5);
+    animation:micPulse 1.2s ease-in-out infinite;
+  }
+  .mic-btn.speaking {
+    background:linear-gradient(135deg, var(--accent3), #3da84a);
+    box-shadow:0 4px 26px rgba(107,203,119,0.5);
+    animation:speakPulse 0.8s ease-in-out infinite;
   }
   @keyframes micPulse {
-    0%,100% { box-shadow:0 4px 24px rgba(77,150,255,0.4), 0 0 0 0 rgba(77,150,255,0.4); }
-    50% { box-shadow:0 4px 24px rgba(77,150,255,0.6), 0 0 0 20px rgba(77,150,255,0); }
+    0%,100% { box-shadow:0 4px 26px rgba(77,150,255,0.4),0 0 0 0 rgba(77,150,255,0.4); }
+    50% { box-shadow:0 4px 26px rgba(77,150,255,0.6),0 0 0 22px rgba(77,150,255,0); }
   }
-  .mic-label {
-    font-size:0.8rem;
-    color:var(--muted);
+  @keyframes speakPulse {
+    0%,100% { box-shadow:0 4px 26px rgba(107,203,119,0.4),0 0 0 0 rgba(107,203,119,0.3); }
+    50% { box-shadow:0 4px 26px rgba(107,203,119,0.6),0 0 0 18px rgba(107,203,119,0); }
   }
+  .mic-label { font-size:0.82rem; color:var(--muted); text-align:center; }
 
-  /* Feedback */
-  .feedback {
-    text-align:center;
-    min-height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:16px;
-  }
+  .feedback { text-align:center; min-height:44px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
   .feedback-msg {
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.3rem;
-    font-weight:700;
-    padding:8px 24px;
-    border-radius:40px;
-    opacity:0;
-    transform:translateY(10px);
-    transition:all 0.3s;
+    font-family:'Baloo Da 2',cursive; font-size:1.4rem; font-weight:700;
+    padding:8px 26px; border-radius:40px; opacity:0; transform:translateY(10px); transition:all 0.3s;
   }
-  .feedback-msg.show {
-    opacity:1; transform:translateY(0);
-  }
+  .feedback-msg.show { opacity:1; transform:translateY(0); }
   .feedback-msg.correct { background:rgba(107,203,119,0.15); color:var(--accent3); border:1px solid rgba(107,203,119,0.3); }
   .feedback-msg.wrong { background:rgba(255,107,107,0.12); color:var(--accent1); border:1px solid rgba(255,107,107,0.25); }
 
-  /* Progress */
-  .progress-section { margin-bottom:20px; }
-  .progress-track {
-    background:rgba(255,255,255,0.06);
-    border-radius:99px;
-    height:8px;
-    overflow:hidden;
-  }
-  .progress-fill {
-    height:100%;
-    border-radius:99px;
-    background: linear-gradient(90deg, var(--accent3), var(--accent2));
-    transition:width 0.5s ease;
-    box-shadow: 0 0 8px rgba(107,203,119,0.4);
-  }
-  .progress-label {
-    display:flex;
-    justify-content:space-between;
-    font-size:0.75rem;
-    color:var(--muted);
-    margin-bottom:6px;
-  }
-
-  /* Table display */
-  .table-display {
-    background:var(--card);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:20px;
-    margin-bottom:20px;
-  }
-  .table-display-title {
-    font-size:0.75rem;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:14px;
-  }
-  .table-rows {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:6px;
-  }
-  .table-row {
-    font-family:'Hind Siliguri', sans-serif;
-    font-size:0.88rem;
-    padding:6px 10px;
-    border-radius:8px;
-    background:rgba(255,255,255,0.03);
-    color:var(--muted);
-    transition:all 0.3s;
-  }
-  .table-row.current {
-    background:rgba(255,217,61,0.12);
-    color:var(--accent2);
-    font-weight:600;
-  }
-  .table-row.done-correct {
-    background:rgba(107,203,119,0.1);
-    color:var(--accent3);
-  }
-  .table-row.done-wrong {
-    background:rgba(255,107,107,0.08);
-    color:#ff8585;
-  }
-
-  /* Next btn */
-  .next-btn {
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:14px;
-    background: linear-gradient(135deg, var(--accent4), #2d7dd2);
-    color:#fff;
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:all 0.2s;
-    box-shadow: 0 4px 16px rgba(77,150,255,0.3);
-    display:none;
-  }
-  .next-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(77,150,255,0.4); }
-  .next-btn.visible { display:block; }
-
-  /* Celebration overlay */
-  .celebration {
-    position:fixed; inset:0; z-index:100;
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background:rgba(15,12,41,0.92);
-    backdrop-filter:blur(8px);
-  }
-  .celebration.show { display:flex; }
-  .celebration-emoji {
-    font-size:5rem;
-    margin-bottom:16px;
-    animation: bounceIn 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
-  }
-  @keyframes bounceIn {
-    0% { transform:scale(0); }
-    100% { transform:scale(1); }
-  }
-  .celebration-text {
-    font-family:'Baloo Da 2', cursive;
-    font-size:2rem;
-    font-weight:800;
-    background: linear-gradient(135deg, var(--accent2), var(--accent1));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-    text-align:center;
-  }
-  .celebration-sub {
-    color:var(--muted);
-    margin-top:8px;
-    font-size:1rem;
-    text-align:center;
-  }
-  .celebration-btn {
-    margin-top:28px;
-    padding:14px 32px;
-    border:none;
-    border-radius:14px;
-    background: linear-gradient(135deg, var(--accent2), var(--accent1));
-    color:#0f0c29;
-    font-family:'Baloo Da 2', cursive;
-    font-size:1.1rem;
-    font-weight:800;
-    cursor:pointer;
-    transition:all 0.2s;
-  }
-  .celebration-btn:hover { transform:scale(1.04); }
-
-  /* confetti */
-  .confetti-piece {
-    position:fixed;
-    width:10px; height:10px;
-    border-radius:2px;
-    opacity:0;
-    pointer-events:none;
-    z-index:200;
-    animation: confettiFall var(--dur) ease-in var(--delay) forwards;
-  }
-  @keyframes confettiFall {
-    0% { opacity:1; transform:translateY(-20px) rotate(0deg); }
-    100% { opacity:0; transform:translateY(100vh) rotate(720deg); }
-  }
-
-  /* No speech support */
-  .no-speech {
-    background:rgba(255,107,107,0.1);
-    border:1px solid rgba(255,107,107,0.3);
-    border-radius:12px;
-    padding:12px 16px;
-    font-size:0.85rem;
-    color:var(--accent1);
-    text-align:center;
-    margin-bottom:16px;
-    display:none;
-  }
-
-  /* Manual input */
-  .manual-section {
-    display:flex;
-    gap:8px;
-    margin-bottom:12px;
-  }
+  .manual-section { display:flex; gap:8px; margin-bottom:10px; }
   .manual-input {
-    flex:1;
-    background:rgba(255,255,255,0.06);
-    border:1.5px solid rgba(255,255,255,0.12);
-    border-radius:12px;
-    padding:12px 16px;
-    color:var(--text);
-    font-family:'Hind Siliguri', sans-serif;
-    font-size:1.1rem;
-    outline:none;
-    transition:border-color 0.2s;
+    flex:1; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12);
+    border-radius:12px; padding:12px 16px; color:var(--text);
+    font-family:'Hind Siliguri',sans-serif; font-size:1.1rem; outline:none; transition:border-color 0.2s;
   }
   .manual-input:focus { border-color:var(--accent4); }
   .manual-submit {
-    padding:12px 20px;
-    background:var(--accent4);
-    border:none;
-    border-radius:12px;
-    color:#fff;
-    font-family:'Baloo Da 2', cursive;
-    font-size:1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:all 0.2s;
+    padding:12px 20px; background:var(--accent4); border:none; border-radius:12px; color:#fff;
+    font-family:'Baloo Da 2',cursive; font-size:1rem; font-weight:700; cursor:pointer; transition:all 0.2s;
   }
   .manual-submit:hover { background:#2d7dd2; }
-
   .or-divider {
-    text-align:center;
-    font-size:0.75rem;
-    color:rgba(155,143,192,0.4);
-    margin:4px 0 12px;
-    position:relative;
+    text-align:center; font-size:0.72rem; color:rgba(155,143,192,0.35); margin:4px 0 10px; position:relative;
   }
-  .or-divider::before, .or-divider::after {
-    content:'';
-    position:absolute;
-    top:50%; width:40%;
-    height:1px;
-    background:rgba(255,255,255,0.07);
+  .or-divider::before,.or-divider::after { content:''; position:absolute; top:50%; width:40%; height:1px; background:rgba(255,255,255,0.07); }
+  .or-divider::before { left:0; } .or-divider::after { right:0; }
+
+  .no-speech {
+    background:rgba(255,107,107,0.1); border:1px solid rgba(255,107,107,0.3); border-radius:12px;
+    padding:10px 16px; font-size:0.83rem; color:var(--accent1); text-align:center; margin-bottom:14px; display:none;
   }
-  .or-divider::before { left:0; }
-  .or-divider::after { right:0; }
+
+  .celebration {
+    position:fixed; inset:0; z-index:100; display:none; flex-direction:column;
+    align-items:center; justify-content:center; background:rgba(15,12,41,0.92); backdrop-filter:blur(8px);
+  }
+  .celebration.show { display:flex; }
+  .celebration-emoji { font-size:5rem; margin-bottom:16px; animation:bounceIn 0.6s cubic-bezier(0.68,-0.55,0.265,1.55); }
+  @keyframes bounceIn { 0%{transform:scale(0)} 100%{transform:scale(1)} }
+  .celebration-text {
+    font-family:'Baloo Da 2',cursive; font-size:2.2rem; font-weight:800;
+    background:linear-gradient(135deg, var(--accent2), var(--accent1));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-align:center;
+  }
+  .celebration-sub { color:var(--muted); margin-top:8px; font-size:1rem; text-align:center; }
+  .celebration-btn {
+    margin-top:28px; padding:14px 32px; border:none; border-radius:14px;
+    background:linear-gradient(135deg, var(--accent2), var(--accent1)); color:#0f0c29;
+    font-family:'Baloo Da 2',cursive; font-size:1.1rem; font-weight:800; cursor:pointer; transition:all 0.2s;
+  }
+  .celebration-btn:hover { transform:scale(1.04); }
+  .confetti-piece {
+    position:fixed; width:10px; height:10px; border-radius:2px; opacity:0;
+    pointer-events:none; z-index:200;
+    animation:confettiFall var(--dur) ease-in var(--delay) forwards;
+  }
+  @keyframes confettiFall { 0%{opacity:1;transform:translateY(-20px) rotate(0deg)} 100%{opacity:0;transform:translateY(100vh) rotate(720deg)} }
 </style>
 </head>
 <body>
@@ -568,8 +253,8 @@
     </div>
   </div>
 
-  <div class="question-card" id="questionCard">
-    <div class="question-badge">প্রশ্ন</div>
+  <div class="question-card">
+    <div class="question-num" id="questionNum">প্রশ্ন ১/১০</div>
     <div class="question-text" id="questionText">একটি নামতা বেছে নাও!</div>
     <div class="question-hint" id="questionHint">উপরে নম্বর চাপো শুরু করতে</div>
     <div class="answer-display" id="answerDisplay">
@@ -577,9 +262,7 @@
     </div>
   </div>
 
-  <div class="no-speech" id="noSpeechMsg">
-    ⚠️ তোমার ব্রাউজার ভয়েস সাপোর্ট করে না। নিচে লিখে উত্তর দাও।
-  </div>
+  <div class="no-speech" id="noSpeechMsg">⚠️ ভয়েস সাপোর্ট নেই। নিচে লিখে উত্তর দাও।</div>
 
   <div class="mic-section">
     <button class="mic-btn" id="micBtn" onclick="toggleMic()">🎤</button>
@@ -592,19 +275,11 @@
     <button class="manual-submit" onclick="submitManual()">✓ দাও</button>
   </div>
 
-  <div class="feedback" id="feedbackArea">
+  <div class="feedback">
     <div class="feedback-msg" id="feedbackMsg"></div>
-  </div>
-
-  <button class="next-btn" id="nextBtn" onclick="nextQuestion()">পরের প্রশ্ন →</button>
-
-  <div class="table-display" id="tableDisplay" style="display:none">
-    <div class="table-display-title">নামতার তালিকা</div>
-    <div class="table-rows" id="tableRows"></div>
   </div>
 </div>
 
-<!-- Celebration -->
 <div class="celebration" id="celebration">
   <div class="celebration-emoji" id="celebEmoji">🏆</div>
   <div class="celebration-text" id="celebText">অসাধারণ!</div>
@@ -613,411 +288,357 @@
 </div>
 
 <script>
-// ─── Bangla number mapping ───────────────────────────────────────────────────
-const toBanglaNum = n => String(n).split('').map(d => '০১২৩৪৫৬৭৮৯'[d]).join('');
+// ── Bangla helpers ──────────────────────────────────────────────────────────
+const toBn = n => String(n).split('').map(d=>'০১২৩৪৫৬৭৮৯'[d]).join('');
 
-// All the ways the number can appear in speech (bangla spoken forms + arabic)
-const numberWords = {
-  0:  ['শূন্য','zero','0','শুন্য'],
-  1:  ['এক','ek','1','একটি'],
-  2:  ['দুই','দুই','2','দু','দুইটি','দো'],
-  3:  ['তিন','tin','3','তিনটি'],
-  4:  ['চার','char','4','চারটি'],
-  5:  ['পাঁচ','panch','5','পাঁচটি','পাচ'],
-  6:  ['ছয়','choy','6','ছয়টি'],
-  7:  ['সাত','saat','7','সাতটি'],
-  8:  ['আট','aat','8','আটটি'],
-  9:  ['নয়','noy','9','নয়টি'],
-  10: ['দশ','dash','10','দশটি'],
-  11: ['এগারো','egaro','11','এগার'],
-  12: ['বারো','baro','12','বার'],
-  13: ['তেরো','tero','13','তের'],
-  14: ['চৌদ্দ','chuddho','14','চোদ্দ'],
-  15: ['পনেরো','ponero','15','পনের'],
-  16: ['ষোলো','sholo','16','ষোল'],
-  17: ['সতেরো','sotero','17','সতের'],
-  18: ['আঠারো','atharo','18','আঠার'],
-  19: ['উনিশ','unish','19'],
-  20: ['বিশ','bish','20'],
-  21: ['একুশ','ekush','21'],
-  22: ['বাইশ','baish','22'],
-  23: ['তেইশ','teish','23'],
-  24: ['চব্বিশ','chobbish','24'],
-  25: ['পঁচিশ','pochish','25'],
-  26: ['ছাব্বিশ','chabbish','26'],
-  27: ['সাতাশ','satash','27'],
-  28: ['আটাশ','atash','28'],
-  29: ['উনত্রিশ','unottrish','29'],
-  30: ['ত্রিশ','trish','30'],
-  32: ['বত্রিশ','bottrish','32'],
-  35: ['পঁয়ত্রিশ','poyrtrish','35'],
-  36: ['ছত্রিশ','chhottrish','36'],
-  40: ['চল্লিশ','challish','40'],
-  42: ['বিয়াল্লিশ','biyallish','42'],
-  45: ['পঁয়তাল্লিশ','poytallish','45'],
-  48: ['আটচল্লিশ','atchallish','48'],
-  49: ['উনপঞ্চাশ','unoponchash','49'],
-  50: ['পঞ্চাশ','ponchash','50'],
-  54: ['চুয়ান্ন','chuann','54'],
-  56: ['ছাপান্ন','chapann','56'],
-  60: ['ষাট','shat','60'],
-  63: ['তেষট্টি','teshotti','63'],
-  64: ['চৌষট্টি','choushotti','64'],
-  70: ['সত্তর','shottor','70'],
-  72: ['বাহাত্তর','bahattor','72'],
-  77: ['সাতাত্তর','satattor','77'],
-  80: ['আশি','ashi','80'],
-  81: ['একাশি','ekashi','81'],
-  88: ['অষ্টাশি','oshtashi','88'],
-  90: ['নব্বই','nobboi','90'],
-  99: ['নিরানব্বই','niraanobboi','99'],
-  100:['একশত','ekshoto','100','একশো'],
-  108:['একশত আট','ekshoto aat','108'],
-  110:['একশত দশ','110'],
-  120:['একশত বিশ','120'],
+const wordMap = {
+  0:'শূন্য',1:'এক',2:'দুই',3:'তিন',4:'চার',5:'পাঁচ',6:'ছয়',7:'সাত',8:'আট',9:'নয়',
+  10:'দশ',11:'এগারো',12:'বারো',13:'তেরো',14:'চৌদ্দ',15:'পনেরো',16:'ষোলো',
+  17:'সতেরো',18:'আঠারো',19:'উনিশ',20:'বিশ',21:'একুশ',22:'বাইশ',23:'তেইশ',
+  24:'চব্বিশ',25:'পঁচিশ',26:'ছাব্বিশ',27:'সাতাশ',28:'আটাশ',29:'উনত্রিশ',
+  30:'ত্রিশ',31:'একত্রিশ',32:'বত্রিশ',33:'তেত্রিশ',34:'চৌত্রিশ',35:'পঁয়ত্রিশ',
+  36:'ছত্রিশ',37:'সাতত্রিশ',38:'আটত্রিশ',39:'উনচল্লিশ',40:'চল্লিশ',
+  42:'বিয়াল্লিশ',45:'পঁয়তাল্লিশ',48:'আটচল্লিশ',49:'উনপঞ্চাশ',50:'পঞ্চাশ',
+  54:'চুয়ান্ন',56:'ছাপান্ন',60:'ষাট',63:'তেষট্টি',64:'চৌষট্টি',
+  70:'সত্তর',72:'বাহাত্তর',77:'সাতাত্তর',80:'আশি',81:'একাশি',
+  88:'অষ্টাশি',90:'নব্বই',99:'নিরানব্বই',100:'একশো',
+  108:'একশো আট',110:'একশো দশ',120:'একশো বিশ'
 };
 
-function normalizeAnswer(text) {
-  // Strip whitespace, lowercase
-  let t = text.trim().toLowerCase().replace(/\s+/g,'');
-  // Map English digits
-  const banglaDigits = {'০':'0','১':'1','২':'2','৩':'3','৪':'4','৫':'5','৬':'6','৭':'7','৮':'8','৯':'9'};
-  t = t.split('').map(c => banglaDigits[c] || c).join('');
-  // Try parse as number
-  const num = parseInt(t);
-  if (!isNaN(num)) return num;
-  return null;
+function toWord(n) {
+  if (wordMap[n]) return wordMap[n];
+  // Compose for missing values
+  const tens = Math.floor(n/10)*10;
+  const ones = n%10;
+  const tensW = {20:'বিশ',30:'ত্রিশ',40:'চল্লিশ',50:'পঞ্চাশ',60:'ষাট',70:'সত্তর',80:'আশি',90:'নব্বই'};
+  if (tensW[tens] && wordMap[ones]) return tensW[tens]+' '+wordMap[ones];
+  return String(n);
 }
 
+// Spoken → number
+const spokenMap = {};
+Object.entries(wordMap).forEach(([n,w])=>{
+  (spokenMap[w]||(spokenMap[w]=[])).push(parseInt(n));
+});
+// extra aliases
+const aliases = {
+  'শুন্য':0,'দু':2,'দো':2,'পাচ':5,'তের':13,'পনের':15,'ষোল':16,'সতের':17,'আঠার':18,
+  'বার':12,'এগার':11,'চোদ্দ':14
+};
+
 function spokenToNumber(text) {
-  let t = text.trim().toLowerCase();
-  // Remove common filler
-  t = t.replace(/হলো|হবে|=|বলো|সমান/g,'').trim();
-
-  // Try direct number parse
-  const direct = normalizeAnswer(t);
-  if (direct !== null) return direct;
-
-  // Try word lookup
-  for (const [num, words] of Object.entries(numberWords)) {
-    for (const word of words) {
-      if (t.includes(word.toLowerCase())) return parseInt(num);
-    }
+  let t = text.trim().toLowerCase().replace(/[=।\n]/g,' ').replace(/\s+/g,' ').trim();
+  // convert bangla digits
+  t = t.replace(/[০-৯]/g, d=>'০১২৩৪৫৬৭৮৯'.indexOf(d));
+  // strip noise
+  t = t.replace(/হলো|হবে|সমান|বলো|গুণ|কত|এর|নামতা/g,'').trim();
+  const direct = parseInt(t.replace(/\s/g,''));
+  if (!isNaN(direct) && direct >= 0) return direct;
+  // word lookup (longest match first)
+  const sorted = [...Object.keys(wordMap).map(n=>({n:parseInt(n),w:wordMap[n]})), ...Object.entries(aliases).map(([w,n])=>({n,w}))];
+  sorted.sort((a,b)=>b.w.length-a.w.length);
+  for (const {n,w} of sorted) {
+    if (t.includes(w)) return n;
   }
   return null;
 }
 
-// ─── Game State ──────────────────────────────────────────────────────────────
-let state = {
-  selectedTable: null,
-  currentStep: 0, // 1..10
-  score: 0,
-  correct: 0,
-  wrong: 0,
-  answered: {}, // step -> true/false
-  waitingNext: false,
-};
+// ── TTS ─────────────────────────────────────────────────────────────────────
+let isSpeaking = false;
+let ttsVoice = null;
 
-// ─── Stars ───────────────────────────────────────────────────────────────────
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  ttsVoice = voices.find(v=>v.lang.startsWith('bn')) ||
+             voices.find(v=>v.lang.startsWith('hi')) ||
+             voices.find(v=>v.lang.startsWith('en-IN')) || null;
+}
+
+function speak(text, onEnd) {
+  if (!window.speechSynthesis) { onEnd&&onEnd(); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  if (ttsVoice) utt.voice = ttsVoice;
+  utt.lang = 'bn-BD';
+  utt.rate = 0.88;
+  utt.pitch = 1.1;
+  isSpeaking = true;
+  setMicState('speaking');
+  document.getElementById('micLabel').textContent = '🔊 বলছি...';
+  utt.onend = utt.onerror = () => {
+    isSpeaking = false;
+    onEnd && onEnd();
+  };
+  window.speechSynthesis.speak(utt);
+}
+
+function speakThenMic(text) {
+  speak(text, () => {
+    setTimeout(startMicIfReady, 350);
+  });
+}
+
+function speakQuestion() {
+  const {selectedTable:t, currentStep:s} = state;
+  speakThenMic(`${toWord(t)} গুণ ${toWord(s)} কত?`);
+}
+
+function speakResult(isCorrect, correct, cb) {
+  const correctMsgs = ['সাবাশ! একদম ঠিক!','দারুণ! সঠিক উত্তর!','অসাধারণ!','বাহ! পারফেক্ট!','ওয়াও! চমৎকার!'];
+  const msg = isCorrect
+    ? correctMsgs[Math.floor(Math.random()*correctMsgs.length)]
+    : `ভুল। সঠিক উত্তর ছিল ${toWord(correct)}।`;
+  speak(msg, cb);
+}
+
+// ── Game State ───────────────────────────────────────────────────────────────
+let state = { selectedTable:null, currentStep:1, score:0, correct:0, wrong:0, answered:{} };
+let answerLocked = false;
+
+// ── Stars ────────────────────────────────────────────────────────────────────
 function initStars() {
-  const c = document.getElementById('stars');
-  for (let i=0;i<60;i++){
-    const s = document.createElement('div');
-    s.className='star';
-    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:${Math.random()*4}s;`;
+  const c=document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div'); s.className='star';
+    s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:${Math.random()*4}s;`;
     c.appendChild(s);
   }
 }
 
-// ─── Table selector ──────────────────────────────────────────────────────────
+// ── Table selector ───────────────────────────────────────────────────────────
 function initTableSelector() {
-  const sel = document.getElementById('tableSelector');
-  for (let i=1;i<=12;i++){
-    const btn = document.createElement('button');
-    btn.className='table-btn';
-    btn.textContent=toBanglaNum(i);
-    btn.dataset.table=i;
-    btn.onclick=()=>selectTable(i);
-    sel.appendChild(btn);
+  const sel=document.getElementById('tableSelector');
+  for(let i=1;i<=12;i++){
+    const btn=document.createElement('button'); btn.className='table-btn';
+    btn.textContent=toBn(i); btn.dataset.table=i;
+    btn.onclick=()=>selectTable(i); sel.appendChild(btn);
   }
 }
 
 function selectTable(n) {
-  state.selectedTable=n;
-  state.currentStep=1;
-  state.answered={};
-  state.waitingNext=false;
-
-  document.querySelectorAll('.table-btn').forEach(b=>{
-    b.classList.toggle('active', parseInt(b.dataset.table)===n);
-  });
-
-  renderTableDisplay(n);
-  showQuestion();
-  document.getElementById('nextBtn').classList.remove('visible');
+  stopMic();
+  window.speechSynthesis && window.speechSynthesis.cancel();
+  isSpeaking=false; answerLocked=false;
+  state={ selectedTable:n, currentStep:1, score:state.score, correct:state.correct, wrong:state.wrong, answered:{} };
+  document.querySelectorAll('.table-btn').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.table)===n));
   clearFeedback();
+  showQuestion();
+  speak(`${toWord(n)} এর নামতা শুরু হচ্ছে!`, () => {
+    speakQuestion();
+  });
 }
 
-// ─── Table display ───────────────────────────────────────────────────────────
-function renderTableDisplay(n) {
-  const d = document.getElementById('tableDisplay');
-  const rows = document.getElementById('tableRows');
-  d.style.display='block';
-  rows.innerHTML='';
-  for(let i=1;i<=10;i++){
-    const div = document.createElement('div');
-    div.className='table-row';
-    div.id=`row-${i}`;
-    div.textContent=`${toBanglaNum(n)} × ${toBanglaNum(i)} = ${toBanglaNum(n*i)}`;
-    if(state.answered[i]===true) div.classList.add('done-correct');
-    else if(state.answered[i]===false) div.classList.add('done-wrong');
-    else if(i===state.currentStep) div.classList.add('current');
-    rows.appendChild(div);
-  }
-}
-
-// ─── Question ────────────────────────────────────────────────────────────────
+// ── Question display ─────────────────────────────────────────────────────────
 function showQuestion() {
-  const {selectedTable:t, currentStep:s} = state;
-  const q = `${toBanglaNum(t)} × ${toBanglaNum(s)} = ?`;
-  document.getElementById('questionText').textContent = q;
-  document.getElementById('questionHint').textContent = `${toBanglaNum(t)} গুণ ${toBanglaNum(s)} কত?`;
-
-  const disp = document.getElementById('answerDisplay');
-  disp.className='answer-display';
-  disp.innerHTML='<span class="answer-placeholder">তোমার উত্তর এখানে আসবে...</span>';
-
-  updateProgress();
-  updateScoreDisplay();
+  const {selectedTable:t,currentStep:s}=state;
+  document.getElementById('questionNum').textContent=`প্রশ্ন ${toBn(s)}/১০`;
+  document.getElementById('questionText').textContent=`${toBn(t)} × ${toBn(s)} = ?`;
+  document.getElementById('questionHint').textContent=`${toWord(t)} গুণ ${toWord(s)} কত?`;
+  const d=document.getElementById('answerDisplay');
+  d.className='answer-display';
+  d.innerHTML='<span class="answer-placeholder">তোমার উত্তর এখানে আসবে...</span>';
   document.getElementById('manualInput').value='';
-  document.getElementById('micLabel').textContent='মাইক চাপো এবং উত্তর বলো';
+  updateProgress(); updateScore();
 }
 
 function updateProgress() {
-  const done = Object.keys(state.answered).length;
-  const pct = Math.round((done/10)*100);
+  const done=Object.keys(state.answered).length;
+  const pct=Math.round((done/10)*100);
   document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('progressPct').textContent=toBanglaNum(pct)+'%';
-  document.getElementById('progressLabel').textContent=`${toBanglaNum(done)}/১০ উত্তর দেওয়া হয়েছে`;
+  document.getElementById('progressPct').textContent=toBn(pct)+'%';
+  document.getElementById('progressLabel').textContent=`${toBn(done)}/১০ উত্তর দেওয়া হয়েছে`;
+}
+function updateScore() {
+  document.getElementById('scoreDisplay').textContent=toBn(state.score);
+  document.getElementById('correctDisplay').textContent=toBn(state.correct);
+  document.getElementById('wrongDisplay').textContent=toBn(state.wrong);
 }
 
-function updateScoreDisplay() {
-  document.getElementById('scoreDisplay').textContent=toBanglaNum(state.score);
-  document.getElementById('correctDisplay').textContent=toBanglaNum(state.correct);
-  document.getElementById('wrongDisplay').textContent=toBanglaNum(state.wrong);
+// ── Answer check ─────────────────────────────────────────────────────────────
+function checkAnswer(raw) {
+  if(answerLocked||!state.selectedTable) return;
+  answerLocked=true; stopMic();
+
+  const correct=state.selectedTable*state.currentStep;
+  const given=typeof raw==='number'?raw:spokenToNumber(raw);
+  const isCorrect=given===correct;
+
+  const d=document.getElementById('answerDisplay');
+  d.innerHTML=`<span class="answer-text">${given!==null?toBn(given):(raw||'?')}</span>`;
+  d.classList.add(isCorrect?'correct':'wrong');
+
+  state.answered[state.currentStep]=isCorrect;
+  if(isCorrect){state.score+=10;state.correct++;}
+  else{state.score=Math.max(0,state.score-5);state.wrong++;}
+  updateScore(); updateProgress();
+  showFeedback(isCorrect,correct);
+
+  speakResult(isCorrect, correct, ()=>{
+    answerLocked=false;
+    clearFeedback();
+    if(state.currentStep<10){
+      state.currentStep++;
+      showQuestion();
+      speakQuestion();
+    } else {
+      setTimeout(showCelebration, 300);
+    }
+  });
 }
 
-// ─── Answer checking ─────────────────────────────────────────────────────────
-function checkAnswer(userAnswer) {
-  if(state.waitingNext || !state.selectedTable) return;
-  const correct = state.selectedTable * state.currentStep;
-
-  let given = null;
-  if(typeof userAnswer === 'number') {
-    given = userAnswer;
-  } else {
-    given = spokenToNumber(userAnswer);
-  }
-
-  const disp = document.getElementById('answerDisplay');
-  const displayText = given !== null ? toBanglaNum(given) : userAnswer;
-  disp.innerHTML = `<span class="answer-text">${displayText}</span>`;
-
-  const isCorrect = given === correct;
-  state.answered[state.currentStep] = isCorrect;
-
-  if(isCorrect){
-    state.score += 10;
-    state.correct++;
-    disp.classList.add('correct');
-    showFeedback(true);
-    updateRowStatus(state.currentStep, true);
-    document.getElementById('micLabel').textContent='✓ সঠিক উত্তর!';
-  } else {
-    state.score = Math.max(0, state.score - 5);
-    state.wrong++;
-    disp.classList.add('wrong');
-    showFeedback(false, correct);
-    updateRowStatus(state.currentStep, false);
-    document.getElementById('micLabel').textContent=`✗ সঠিক ছিল: ${toBanglaNum(correct)}`;
-  }
-
-  state.waitingNext = true;
-  updateScoreDisplay();
-
-  if(state.currentStep < 10) {
-    document.getElementById('nextBtn').classList.add('visible');
-  } else {
-    setTimeout(()=>showCelebration(), 800);
-  }
+// ── Feedback ─────────────────────────────────────────────────────────────────
+const cMsgs=['অসাধারণ! 🌟','দারুণ! 🎉','শাবাশ! 👏','পারফেক্ট! ✨','বাহ! 🏆','চমৎকার! 🎊'];
+const wMsgs=['ভুল হয়েছে 😅','চেষ্টা করো! 💪','পরেরটা ঠিক হবে! 🌈'];
+function showFeedback(ok,ans) {
+  const m=document.getElementById('feedbackMsg');
+  m.className='feedback-msg';
+  m.textContent=ok ? cMsgs[Math.floor(Math.random()*cMsgs.length)] : wMsgs[Math.floor(Math.random()*wMsgs.length)]+` সঠিক: ${toBn(ans)}`;
+  m.classList.add(ok?'correct':'wrong','show');
 }
-
-function updateRowStatus(step, correct) {
-  const row = document.getElementById(`row-${step}`);
-  if(row){
-    row.classList.remove('current','done-correct','done-wrong');
-    row.classList.add(correct?'done-correct':'done-wrong');
-  }
-}
-
-// ─── Feedback ────────────────────────────────────────────────────────────────
-const correctMsgs = ['অসাধারণ! 🌟','দারুণ! 🎉','শাবাশ! 👏','পারফেক্ট! ✨','বাহ! 🏆','চমৎকার! 🎊','ওয়াও! 🔥'];
-const wrongMsgs = ['আবার চেষ্টা করো! 💪','ঠিকানা নেই, চলতে থাকো! 😊','পরেরটা ঠিক হবে! 🌈'];
-
-function showFeedback(isCorrect, correctAns=null) {
-  const msg = document.getElementById('feedbackMsg');
-  msg.className='feedback-msg';
-  if(isCorrect){
-    msg.textContent = correctMsgs[Math.floor(Math.random()*correctMsgs.length)];
-    msg.classList.add('correct','show');
-  } else {
-    msg.textContent = wrongMsgs[Math.floor(Math.random()*wrongMsgs.length)] + (correctAns!==null ? ` সঠিক: ${toBanglaNum(correctAns)}` : '');
-    msg.classList.add('wrong','show');
-  }
-}
-
 function clearFeedback() {
-  const msg = document.getElementById('feedbackMsg');
-  msg.className='feedback-msg';
-  msg.textContent='';
+  const m=document.getElementById('feedbackMsg');
+  m.className='feedback-msg'; m.textContent='';
 }
 
-// ─── Next question ────────────────────────────────────────────────────────────
-function nextQuestion() {
-  state.currentStep++;
-  state.waitingNext=false;
-  clearFeedback();
-  document.getElementById('nextBtn').classList.remove('visible');
-
-  // highlight next row
-  const next = document.getElementById(`row-${state.currentStep}`);
-  if(next){ next.classList.add('current'); }
-
-  showQuestion();
-}
-
-// ─── Celebration ──────────────────────────────────────────────────────────────
+// ── Celebration ───────────────────────────────────────────────────────────────
 function showCelebration() {
-  const pct = Math.round((state.correct/10)*100);
-  let emoji='🏆', text='অসাধারণ!', sub='';
-  if(pct===100){ emoji='🌟'; text='পারফেক্ট স্কোর!'; }
-  else if(pct>=80){ emoji='🎉'; text='দারুণ করেছো!'; }
-  else if(pct>=60){ emoji='👍'; text='বেশ ভালো!'; }
-  else { emoji='💪'; text='চেষ্টা করতে থাকো!'; }
-  sub=`${toBanglaNum(state.correct)}/১০ সঠিক • ${toBanglaNum(state.score)} পয়েন্ট`;
-
-  document.getElementById('celebEmoji').textContent=emoji;
-  document.getElementById('celebText').textContent=text;
-  document.getElementById('celebSub').textContent=sub;
+  const pct=Math.round((state.correct/10)*100);
+  let e='🏆',t='অসাধারণ!';
+  if(pct===100){e='🌟';t='পারফেক্ট স্কোর!';}
+  else if(pct>=80){e='🎉';t='দারুণ করেছো!';}
+  else if(pct>=60){e='👍';t='বেশ ভালো!';}
+  else{e='💪';t='চেষ্টা করতে থাকো!';}
+  document.getElementById('celebEmoji').textContent=e;
+  document.getElementById('celebText').textContent=t;
+  document.getElementById('celebSub').textContent=`${toBn(state.correct)}/১০ সঠিক • ${toBn(state.score)} পয়েন্ট`;
   document.getElementById('celebration').classList.add('show');
   launchConfetti();
+  speak(`${t} তুমি দশটির মধ্যে ${toWord(state.correct)}টি সঠিক করেছো। অভিনন্দন!`);
 }
-
 function closeCelebration() {
+  window.speechSynthesis&&window.speechSynthesis.cancel();
+  isSpeaking=false; answerLocked=false;
   document.getElementById('celebration').classList.remove('show');
-  selectTable(state.selectedTable);
+  state.currentStep=1; state.answered={};
+  clearFeedback(); showQuestion(); speakQuestion();
 }
-
 function launchConfetti() {
-  const colors=['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#c77dff','#ff9f43'];
+  const cols=['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#c77dff','#ff9f43'];
   for(let i=0;i<80;i++){
-    const c=document.createElement('div');
-    c.className='confetti-piece';
-    c.style.cssText=`left:${Math.random()*100}%;top:-10px;background:${colors[Math.floor(Math.random()*colors.length)]};--dur:${1.5+Math.random()*2}s;--delay:${Math.random()*1}s;transform:rotate(${Math.random()*360}deg);`;
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4000);
+    const c=document.createElement('div'); c.className='confetti-piece';
+    c.style.cssText=`left:${Math.random()*100}%;top:-10px;background:${cols[i%cols.length]};--dur:${1.5+Math.random()*2}s;--delay:${Math.random()*1}s;`;
+    document.body.appendChild(c); setTimeout(()=>c.remove(),4000);
   }
 }
 
-// ─── Speech Recognition ───────────────────────────────────────────────────────
-let recognition = null;
-let isListening = false;
+// ── Mic state helper ──────────────────────────────────────────────────────────
+function setMicState(s) {
+  const btn=document.getElementById('micBtn');
+  btn.classList.remove('listening','speaking');
+  if(s==='listening'){btn.classList.add('listening');btn.textContent='🔴';}
+  else if(s==='speaking'){btn.classList.add('speaking');btn.textContent='🔊';}
+  else{btn.textContent='🎤';}
+}
+
+// ── Speech Recognition ────────────────────────────────────────────────────────
+let recognition=null, isListening=false;
 
 function initSpeech() {
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   if(!SR){
     document.getElementById('noSpeechMsg').style.display='block';
     document.getElementById('micBtn').style.opacity='0.4';
     document.getElementById('micBtn').style.pointerEvents='none';
     return;
   }
-  recognition = new SR();
-  recognition.lang = 'bn-BD';
-  recognition.interimResults = true;
-  recognition.maxAlternatives = 5;
-  recognition.continuous = false;
+  recognition=new SR();
+  recognition.lang='bn-BD';
+  recognition.interimResults=true;
+  recognition.maxAlternatives=6;
+  recognition.continuous=false;
 
-  recognition.onstart = () => {
+  recognition.onstart=()=>{
     isListening=true;
-    document.getElementById('micBtn').classList.add('listening');
-    document.getElementById('micBtn').textContent='🔴';
-    document.getElementById('micLabel').textContent='শুনছি... বলো!';
+    setMicState('listening');
+    document.getElementById('micLabel').textContent='🎙️ শুনছি... এখন বলো!';
     const d=document.getElementById('answerDisplay');
-    d.className='answer-display listening';
-    d.innerHTML='<span class="answer-placeholder">শুনছি...</span>';
+    if(!answerLocked){d.className='answer-display listening';d.innerHTML='<span class="answer-placeholder">🎙️ শুনছি...</span>';}
   };
 
-  recognition.onresult = (e) => {
-    let interim='';
-    let final='';
+  recognition.onresult=(e)=>{
+    if(answerLocked) return;
+    let interim='',final='';
     for(let i=e.resultIndex;i<e.results.length;i++){
       if(e.results[i].isFinal){
-        // try all alternatives
         for(let a=0;a<e.results[i].length;a++){
           const alt=e.results[i][a].transcript;
-          const num=spokenToNumber(alt);
-          if(num!==null){ final=alt; break; }
+          if(spokenToNumber(alt)!==null){final=alt;break;}
         }
         if(!final) final=e.results[i][0].transcript;
-      } else {
-        interim=e.results[i][0].transcript;
-      }
+      } else { interim=e.results[i][0].transcript; }
     }
-    if(final){
-      document.getElementById('answerDisplay').innerHTML=`<span class="answer-text">${final}</span>`;
-      checkAnswer(final);
-    } else if(interim){
+    if(final&&!answerLocked){ checkAnswer(final); }
+    else if(interim&&!answerLocked){
       document.getElementById('answerDisplay').innerHTML=`<span class="answer-placeholder">${interim}...</span>`;
     }
   };
 
-  recognition.onend = () => {
+  recognition.onend=()=>{
     isListening=false;
-    document.getElementById('micBtn').classList.remove('listening');
-    document.getElementById('micBtn').textContent='🎤';
-    if(!state.waitingNext)
-      document.getElementById('micLabel').textContent='মাইক চাপো এবং উত্তর বলো';
+    if(!isSpeaking&&!answerLocked&&state.selectedTable){
+      setMicState('idle');
+      document.getElementById('micLabel').textContent='মাইক চালু হবে...';
+      setTimeout(startMicIfReady, 400);
+    } else if(isSpeaking){
+      setMicState('speaking');
+    } else {
+      setMicState('idle');
+    }
   };
 
-  recognition.onerror = (e) => {
+  recognition.onerror=(e)=>{
     isListening=false;
-    document.getElementById('micBtn').classList.remove('listening');
-    document.getElementById('micBtn').textContent='🎤';
-    document.getElementById('micLabel').textContent='আবার চেষ্টা করো';
+    if(e.error==='aborted') return;
+    if(!isSpeaking&&!answerLocked&&state.selectedTable){
+      setTimeout(startMicIfReady, 700);
+    }
   };
+}
+
+function startMicIfReady() {
+  if(!recognition||isListening||isSpeaking||answerLocked||!state.selectedTable) return;
+  setMicState('idle');
+  document.getElementById('micLabel').textContent='🎙️ এখন বলো!';
+  try{ recognition.start(); } catch(er){}
+}
+
+function stopMic() {
+  if(recognition&&isListening){ try{recognition.abort();}catch(e){} isListening=false; }
 }
 
 function toggleMic() {
-  if(!state.selectedTable){ alert('আগে একটি নামতা বেছে নাও!'); return; }
-  if(state.waitingNext) return;
-  if(!recognition){ document.getElementById('noSpeechMsg').style.display='block'; return; }
-  if(isListening){ recognition.stop(); return; }
-  try{ recognition.start(); } catch(e){}
+  if(!state.selectedTable){ speak('আগে একটি নামতা বেছে নাও।'); return; }
+  if(isSpeaking) return;
+  if(isListening){ stopMic(); setMicState('idle'); document.getElementById('micLabel').textContent='মাইক বন্ধ'; }
+  else { startMicIfReady(); }
 }
 
-// ─── Manual input ─────────────────────────────────────────────────────────────
+// ── Manual input ──────────────────────────────────────────────────────────────
 function submitManual() {
-  if(!state.selectedTable){ alert('আগে একটি নামতা বেছে নাও!'); return; }
-  if(state.waitingNext) return;
-  const val = parseInt(document.getElementById('manualInput').value);
-  if(isNaN(val)){ document.getElementById('manualInput').focus(); return; }
-  checkAnswer(val);
+  if(!state.selectedTable||answerLocked) return;
+  const v=parseInt(document.getElementById('manualInput').value);
+  if(isNaN(v)) return;
+  checkAnswer(v);
 }
 
+// ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
-  initStars();
-  initTableSelector();
-  initSpeech();
+  initStars(); initTableSelector(); initSpeech();
+  if(window.speechSynthesis){
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged=loadVoices;
+    setTimeout(loadVoices,500);
+  }
   document.getElementById('manualInput').addEventListener('keydown',e=>{
     if(e.key==='Enter') submitManual();
   });
